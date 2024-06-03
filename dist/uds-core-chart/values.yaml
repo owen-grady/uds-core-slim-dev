@@ -1,0 +1,87 @@
+secrets:
+  apiToken: 'ZmE3MmY4YjljOTBkMDA3MGVkMmNhYjJmZDYyYTY1ZDE4MzVmZDM1NmViNWE4OGZhYzQxMzFiODc5N2MyYTQ5Zg=='
+hash: 'ace29db66663d1fe2b9c22648b7e6da785b9563f8cba86c95bef099d8d6debec'
+namespace:
+  annotations: {}
+  labels:
+    pepr.dev: ''
+uuid: 'pepr-uds-core'
+admission:
+  terminationGracePeriodSeconds: 5
+  failurePolicy: 'Fail'
+  env:
+    - name: 'PEPR_WATCH_MODE'
+      value: 'false'
+    - name: 'PEPR_PRETTY_LOG'
+      value: 'false'
+    - name: 'LOG_LEVEL'
+      value: 'info'
+  image: 'ghcr.io/defenseunicorns/pepr/controller:v0.28.7'
+  annotations:
+    pepr.dev/description: 'A collection of capabilities for UDS Core'
+  labels:
+    app: 'pepr-uds-core'
+    pepr.dev/controller: 'admission'
+    pepr.dev/uuid: 'uds-core'
+  securityContext:
+    runAsUser: 65532
+    runAsGroup: 65532
+    runAsNonRoot: true
+    fsGroup: 65532
+  resources:
+    requests:
+      memory: '64Mi'
+      cpu: '100m'
+    limits:
+      memory: '256Mi'
+      cpu: '500m'
+  containerSecurityContext:
+    runAsUser: 65532
+    runAsGroup: 65532
+    runAsNonRoot: true
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+        - 'ALL'
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+watcher:
+  terminationGracePeriodSeconds: 5
+  env:
+    - name: 'PEPR_WATCH_MODE'
+      value: 'true'
+    - name: 'PEPR_PRETTY_LOG'
+      value: 'false'
+    - name: 'LOG_LEVEL'
+      value: 'info'
+  image: 'ghcr.io/defenseunicorns/pepr/controller:v0.28.7'
+  annotations:
+    pepr.dev/description: 'A collection of capabilities for UDS Core'
+  labels:
+    app: 'pepr-uds-core-watcher'
+    pepr.dev/controller: 'watcher'
+    pepr.dev/uuid: 'uds-core'
+  securityContext:
+    runAsUser: 65532
+    runAsGroup: 65532
+    runAsNonRoot: true
+    fsGroup: 65532
+  resources:
+    requests:
+      memory: '64Mi'
+      cpu: '100m'
+    limits:
+      memory: '256Mi'
+      cpu: '500m'
+  containerSecurityContext:
+    runAsUser: 65532
+    runAsGroup: 65532
+    runAsNonRoot: true
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+        - 'ALL'
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}

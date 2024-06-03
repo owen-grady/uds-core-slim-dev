@@ -1,0 +1,1 @@
+{"version":3,"file":"virtual-service.d.ts","sourceRoot":"","sources":["../../../../../../src/pepr/operator/controllers/istio/virtual-service.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,MAAM,EAAkB,UAAU,EAAE,MAAM,WAAW,CAAC;AAG/D;;;;;GAKG;AACH,wBAAsB,cAAc,CAAC,GAAG,EAAE,UAAU,EAAE,SAAS,EAAE,MAAM,qBAmGtE;AAED,wBAAgB,cAAc,CAAC,GAAG,EAAE,UAAU,EAAE,MAAM,EAAE,MAAM,UAS7D"}
